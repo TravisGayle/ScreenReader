@@ -17,16 +17,22 @@ class searchController: UIViewController {
     //@IBOutlet weak var backButton: UIButton!
     //@IBOutlet weak var repeatButton: UIButton!
     //@IBOutlet weak var nextButton: UIButton!
+    
+    
     var ingredients = [""]
     var instructions = [""]
     var counter = -1
     let ss:AVSpeechSynthesizer = AVSpeechSynthesizer()
-    var lasagna = "http://allrecipes.com/recipe/14054/lasagna/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202"
-     
-    var pancake = "http://allrecipes.com/recipe/8056/pancakes/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202"
+    //var lasagna = "http://allrecipes.com/recipe/14054/lasagna/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202"
+    //var pancake = "http://allrecipes.com/recipe/8056/pancakes/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202"
+    //var omelet = "http://allrecipes.com/recipe/33109/aussie-omelet/?internalSource=rotd&referringId=1314&referringContentType=recipe%20hub&clickId=cardslot%201"
+    //var chickenKabobs = "http://allrecipes.com/recipe/19934/chili-lime-chicken-kabobs/?internalSource=streams&referringId=201&referringContentType=recipe%20hub&clickId=st_trending_b"
     
-    func getRecipe() {
-        let url = URL(string:lasagna)
+    
+    var recipeDict = ["Pancakes": "http://allrecipes.com/recipe/8056/pancakes/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202", "Lasagna": "http://allrecipes.com/recipe/14054/lasagna/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202","Omelet":"http://allrecipes.com/recipe/33109/aussie-omelet/?internalSource=rotd&referringId=1314&referringContentType=recipe%20hub&clickId=cardslot%201","Kabobs":"http://allrecipes.com/recipe/19934/chili-lime-chicken-kabobs/?internalSource=streams&referringId=201&referringContentType=recipe%20hub&clickId=st_trending_b","Brownies":"http://allrecipes.com/recipe/238654/brookies-brownie-cookies/?internalSource=staff%20pick&referringId=79&referringContentType=recipe%20hub","Baked Macaroni":"http://allrecipes.com/recipe/24321/moms-favorite-baked-mac-and-cheese/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%204"]
+    
+    func getRecipe(recipeNo: String) {
+        let url = URL(string: recipeDict[recipeNo]!)
         
         
         func findall(regex: String, text: String) -> [String] {
@@ -69,7 +75,7 @@ class searchController: UIViewController {
     override func viewDidLoad() {
         print("HI FAM")
         super.viewDidLoad()
-        getRecipe()
+        getRecipe(recipeNo: "Pancakes")
         self.steps.numberOfLines = 0
         self.steps.text = "Pancakes"
     }
@@ -100,7 +106,6 @@ class searchController: UIViewController {
         let u:AVSpeechUtterance = AVSpeechUtterance(string: instructions[counter])
         ss.speak(u)
         print("BACK BUTTON")
-        //back button
     }
     @IBAction func backButton(_ sender: Any) {
         //don't touch this we might break it
@@ -116,9 +121,19 @@ class searchController: UIViewController {
         self.steps.text = instructions[counter]
         let u:AVSpeechUtterance = AVSpeechUtterance(string: instructions[counter])
         ss.speak(u)
-        //print("JUJU REPEAT")
         
     }
+    
+    
+    @IBAction func randomButton(_ sender: UIBarButtonItem) {
+
+        let name = Array(recipeDict.keys)[Int(arc4random_uniform(UInt32(recipeDict.count)))] // The function arc4random_uniform(_:) takes one parameter, the upper bound. It’ll return a random number between 0 and this upper bound, minus 1.
+        
+        self.steps.text = name
+        print(name)
+        getRecipe(recipeNo: name )
+    }
+    
     @IBOutlet weak var steps: UILabel!
     
     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -132,6 +132,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Say a command (i.e.- search for...)" translatesAutoresizingMaskIntoConstraints="NO" id="Ya1-Fg-RtY">
                                 <rect key="frame" x="16" y="111" width="288" height="44"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6Vv-sJ-ERQ"/>
                                 </constraints>
@@ -140,6 +141,7 @@
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5D-MA-zJ8">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PAZ-my-HXR"/>
                                 </constraints>
@@ -156,11 +158,17 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="RANDOM" id="rVs-jR-I6b">
                                             <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="randomButton:" destination="9RX-dO-Sn6" id="euh-Ak-VrA"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cAc-pw-rGY" appends="YES" id="032-oy-4kJ"/>
+                                </connections>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pancakes" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-ud-RTU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="veggietales" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-ud-RTU">
                                 <rect key="frame" x="29" y="170" width="263" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="3L9-YU-9qx"/>
@@ -204,7 +212,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtb-Dz-dhb">
                                 <rect key="frame" x="29" y="268" width="263" height="166"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -254,6 +262,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="Ya1-Fg-RtY" id="6Bw-nJ-5vu"/>
                         <outlet property="steps" destination="Mtb-Dz-dhb" id="O05-7x-r6c"/>
                     </connections>
                 </viewController>
@@ -261,12 +270,13 @@
                 <tapGestureRecognizer id="6Og-FJ-EUw"/>
                 <tapGestureRecognizer id="YDS-RH-ENV"/>
                 <tapGestureRecognizer id="Tm1-2W-kFW"/>
+                <tapGestureRecognizer id="cAc-pw-rGY"/>
             </objects>
             <point key="canvasLocation" x="935.625" y="107.74647887323944"/>
         </scene>
     </scenes>
     <resources>
         <image name="Screen Shot 2017-05-05 at 11.57.55 AM-1" width="225" height="225"/>
-        <image name="pancakes" width="1600" height="1458"/>
+        <image name="veggietales" width="2488" height="1424"/>
     </resources>
 </document>

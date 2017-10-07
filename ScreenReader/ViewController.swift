@@ -16,10 +16,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
        //UIButton.layer.cornerRadius = 10
+//        self.view.backgroundColor = UIColor.red
         
+//        UIView.animate(withDuration: 5, delay: 0.0, options:[UIViewAnimationOptions.repeat, UIViewAnimationOptions.autoreverse], animations: {
+//            self.view.backgroundColor = UIColor.blue
+//            self.view.backgroundColor = UIColor.green
+//            self.view.backgroundColor = UIColor.orange
+//            self.view.backgroundColor = UIColor.red
+//        }, completion: nil)
 
     }
 
+    
  
     
     @IBAction func exitButton(_ sender: Any) {
