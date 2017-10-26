@@ -8,22 +8,27 @@
 
 import UIKit
 import AVFoundation
+//import StoreKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        print("HI")
         super.viewDidLoad()
+        
+        //GET RATING
+        
+//        if #available(iOS 10.3, *){
+//            SKStoreReviewController.requestReview()
+//        } else {
+//
+//        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         
        //UIButton.layer.cornerRadius = 10
 //        self.view.backgroundColor = UIColor.red
-        
-//        UIView.animate(withDuration: 5, delay: 0.0, options:[UIViewAnimationOptions.repeat, UIViewAnimationOptions.autoreverse], animations: {
-//            self.view.backgroundColor = UIColor.blue
-//            self.view.backgroundColor = UIColor.green
-//            self.view.backgroundColor = UIColor.orange
-//            self.view.backgroundColor = UIColor.red
-//        }, completion: nil)
+
 
     }
 

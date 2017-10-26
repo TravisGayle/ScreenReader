@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltThin.ttf">
+            <string>MarkerFelt-Thin</string>
+        </array>
+        <array key="MarkerFeltWide.ttf">
+            <string>MarkerFelt-Wide</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--mainController-->
         <scene sceneID="tne-QT-ifu">
@@ -59,9 +67,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cjq-z1-9tm"/>
-                                    <outletCollection property="gestureRecognizers" destination="84C-eB-hsZ" appends="YES" id="FHh-MW-PEe"/>
-                                    <segue destination="9RX-dO-Sn6" kind="show" id="fjO-eu-uB3"/>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchDown" id="TgQ-Hp-ham"/>
+                                    <outletCollection property="gestureRecognizers" destination="84C-eB-hsZ" appends="YES" id="jD6-cD-kmH"/>
+                                    <segue destination="9RX-dO-Sn6" kind="show" id="eIt-OR-oYv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-05-05 at 11.57.55 AM-1" highlightedImage="Screen Shot 2017-05-05 at 11.57.55 AM-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-H3-HHV">
@@ -262,7 +270,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="Ya1-Fg-RtY" id="6Bw-nJ-5vu"/>
                         <outlet property="steps" destination="Mtb-Dz-dhb" id="O05-7x-r6c"/>
                     </connections>
                 </viewController>

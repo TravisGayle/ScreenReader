@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/AppDelegate.swift"
-            timestampString = "515607449.798491"
+            timestampString = "530676151.404496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "3"
-            endingLineNumber = "3">
+            endingLineNumber = "3"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -92,11 +94,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/AppDelegate.swift"
-            timestampString = "515607503.976105"
+            timestampString = "530676151.404584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -105,44 +107,44 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ScreenReader.AppDelegate.window.getter : Swift.Optional&lt;__ObjC.UIWindow&gt;"
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "528859892.021722"
+                  timestampString = "530674927.3802"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "35">
+                  offsetFromSymbolStart = "109">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ScreenReader.AppDelegate.window.setter : Swift.Optional&lt;__ObjC.UIWindow&gt;"
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "528859892.024675"
+                  timestampString = "530674927.386595"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "65">
+                  offsetFromSymbolStart = "112">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ScreenReader.AppDelegate.init () -&gt; ScreenReader.AppDelegate"
+                  symbolName = "ScreenReader.AppDelegate.init() -&gt; ScreenReader.AppDelegate"
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "528859892.028097"
+                  timestampString = "530674927.389645"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -159,7 +161,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "529020666.376865"
+            timestampString = "530676151.404644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -175,7 +177,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "529020666.376865"
+            timestampString = "530676151.405111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
