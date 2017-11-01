@@ -15,6 +15,8 @@
 		F7C677DC1E8E2F45002DFEFE /* ScreenReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C677DB1E8E2F45002DFEFE /* ScreenReaderTests.swift */; };
 		F7C677E71E8E2F45002DFEFE /* ScreenReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C677E61E8E2F45002DFEFE /* ScreenReaderUITests.swift */; };
 		F7D81DBD1EBB84C800D4C56A /* searchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D81DBC1EBB84C800D4C56A /* searchController.swift */; };
+		FA3F42491FAA3FA400195E72 /* searchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F42481FAA3FA400195E72 /* searchResultsController.swift */; };
+		FAEF6B921FAA39C1007CBF2A /* MyTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF6B911FAA39C1007CBF2A /* MyTableCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		F7C677E61E8E2F45002DFEFE /* ScreenReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenReaderUITests.swift; sourceTree = "<group>"; };
 		F7C677E81E8E2F45002DFEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7D81DBC1EBB84C800D4C56A /* searchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchController.swift; sourceTree = "<group>"; };
+		FA3F42481FAA3FA400195E72 /* searchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchResultsController.swift; sourceTree = "<group>"; };
+		FAEF6B911FAA39C1007CBF2A /* MyTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				F7C677C81E8E2F45002DFEFE /* ViewController.swift */,
 				F7D81DBC1EBB84C800D4C56A /* searchController.swift */,
 				F7C677CA1E8E2F45002DFEFE /* Main.storyboard */,
+				FA3F42481FAA3FA400195E72 /* searchResultsController.swift */,
+				FAEF6B911FAA39C1007CBF2A /* MyTableCellTableViewCell.swift */,
 				F7C677CD1E8E2F45002DFEFE /* Assets.xcassets */,
 				F7C677CF1E8E2F45002DFEFE /* LaunchScreen.storyboard */,
 				F7C677D21E8E2F45002DFEFE /* Info.plist */,
@@ -270,7 +276,9 @@
 			files = (
 				F7C677C91E8E2F45002DFEFE /* ViewController.swift in Sources */,
 				F7C677C71E8E2F45002DFEFE /* AppDelegate.swift in Sources */,
+				FAEF6B921FAA39C1007CBF2A /* MyTableCellTableViewCell.swift in Sources */,
 				F7D81DBD1EBB84C800D4C56A /* searchController.swift in Sources */,
+				FA3F42491FAA3FA400195E72 /* searchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
