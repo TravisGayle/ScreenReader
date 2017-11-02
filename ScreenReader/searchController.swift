@@ -19,6 +19,7 @@ class searchController: UIViewController, UISearchBarDelegate {
     //@IBOutlet weak var nextButton: UIButton!
     
     var doot = ""
+    var recipetitle = "Pancakes"
     var ingredients = [""]
     var instructions = [""]
     var counter = -1
@@ -76,6 +77,7 @@ class searchController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         print(doot)
         super.viewDidLoad()
+        self.steps.text = recipetitle
         searchBar.showsScopeBar = true
         searchBar.delegate = self
         if (doot != "") {
@@ -104,7 +106,7 @@ class searchController: UIViewController, UISearchBarDelegate {
                 
                 let string = String(characterArray).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 self.instructions = string.components(separatedBy: ".")
-                self.steps.text = xml["serviceResponse"]["recipe"]["title"].element?.text
+                //self.steps.text = xml["serviceResponse"]["recipe"]["title"].element?.text
                 self.theview.setNeedsLayout()
                 self.theview.setNeedsDisplay()
                 //}
@@ -115,7 +117,6 @@ class searchController: UIViewController, UISearchBarDelegate {
             
         } else {
             getRecipe(recipeNo: "Pancakes")
-            self.steps.text = "Pancakes"
         }
         self.steps.numberOfLines = 0
     }

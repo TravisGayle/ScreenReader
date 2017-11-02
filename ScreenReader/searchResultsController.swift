@@ -87,6 +87,7 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
         out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
         // set a variable in the second view controller with the data to pass
         secondViewController.doot = out
+        secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
     }
     
     /*

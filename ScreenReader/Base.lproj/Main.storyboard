@@ -370,7 +370,9 @@
                             <constraint firstItem="2YL-H6-aYb" firstAttribute="bottom" secondItem="WHO-9l-glm" secondAttribute="top" id="oHU-Lc-3D8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="RESULTS" id="2wd-BQ-SLd"/>
+                    <navigationItem key="navigationItem" title="Results" id="B4D-6k-5DU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rcH-5L-fyN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tv" destination="2YL-H6-aYb" id="aZy-w7-8g8"/>
                     </connections>
