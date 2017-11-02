@@ -138,20 +138,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Say a command (i.e.- search for...)" translatesAutoresizingMaskIntoConstraints="NO" id="Ya1-Fg-RtY">
-                                <rect key="frame" x="16" y="111" width="288" height="44"/>
+                            <searchBar contentMode="redraw" text="" placeholder="Say a command (i.e.- search for...)" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ya1-Fg-RtY">
+                                <rect key="frame" x="16" y="155" width="288" height="44"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6Vv-sJ-ERQ"/>
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="9RX-dO-Sn6" id="N4z-5S-GGY"/>
                                 </connections>
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5D-MA-zJ8">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PAZ-my-HXR"/>
@@ -180,7 +184,7 @@
                                 </connections>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="veggietales" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-ud-RTU">
-                                <rect key="frame" x="29" y="170" width="263" height="110"/>
+                                <rect key="frame" x="29" y="214" width="263" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="3L9-YU-9qx"/>
                                 </constraints>
@@ -222,7 +226,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtb-Dz-dhb">
-                                <rect key="frame" x="29" y="268" width="263" height="166"/>
+                                <rect key="frame" x="29" y="312" width="263" height="122"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -243,22 +247,6 @@
                                     <action selector="nextButton:" destination="9RX-dO-Sn6" eventType="touchUpInside" id="GOX-vo-9Q9"/>
                                     <action selector="nextButton:" destination="9RX-dO-Sn6" eventType="touchDown" id="O2M-SF-wOa"/>
                                     <outletCollection property="gestureRecognizers" destination="Tm1-2W-kFW" appends="YES" id="J3T-SN-ciE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-YZ-H59">
-                                <rect key="frame" x="274" y="538" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test"/>
-                                <connections>
-                                    <segue destination="IXM-u9-mwL" kind="show" identifier="toResults" id="Kbw-dp-IYw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-vY-4fE">
-                                <rect key="frame" x="124" y="155" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="searchyboi:" destination="9RX-dO-Sn6" eventType="touchDown" id="xPU-OL-mgD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -292,6 +280,7 @@
                         <outlet property="searchBar" destination="Ya1-Fg-RtY" id="TY9-kz-Dw2"/>
                         <outlet property="steps" destination="Mtb-Dz-dhb" id="O05-7x-r6c"/>
                         <outlet property="theview" destination="Q7K-h3-KPP" id="2r4-qr-Aoc"/>
+                        <segue destination="IXM-u9-mwL" kind="show" identifier="toResults" id="5Yd-ri-VOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdQ-Zg-7gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,7 +403,7 @@
         <image name="veggietales" width="2488" height="1424"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="syy-k0-bFm"/>
+        <segue reference="5Yd-ri-VOQ"/>
         <segue reference="BIw-wb-DmC"/>
     </inferredMetricsTieBreakers>
 </document>
