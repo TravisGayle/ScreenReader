@@ -14,14 +14,19 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
     struct myData {
         var RecipeLabel:String
         var DescriptionLabel:String
+        var id:String
     }
     
     var doot = "";
+    var out = ""
 
     var dummyData: [myData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         print(doot)
         let url = URL(string: "http://services.bettycrocker.com/v2/search/recipes/true/"+doot+".xml")
         
@@ -42,17 +47,16 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
             //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
-            self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["title"].element?.text)!) }
-            print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e["title"].element?.text })
+            self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["description"].element?.text)!, id: (e["id"].element?.text)!) }
+            //print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
             self.tv.reloadData()
             //}
         }
         
         task.resume()
-        // Do any additional setup after loading the view.
     }
+    
 
- 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,10 +78,20 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-
+    // This function is called before the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // get a reference to the second view controller
+        let secondViewController = segue.destination as! searchController
+        print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
+        out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
+        // set a variable in the second view controller with the data to pass
+        secondViewController.doot = out
+    }
+    
     /*
     // MARK: - Navigation
-
+//NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

@@ -146,6 +146,9 @@
                                 </constraints>
                                 <color key="barTintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9RX-dO-Sn6" id="N4z-5S-GGY"/>
+                                </connections>
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5D-MA-zJ8">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -288,6 +291,7 @@
                     <connections>
                         <outlet property="searchBar" destination="Ya1-Fg-RtY" id="TY9-kz-Dw2"/>
                         <outlet property="steps" destination="Mtb-Dz-dhb" id="O05-7x-r6c"/>
+                        <outlet property="theview" destination="Q7K-h3-KPP" id="2r4-qr-Aoc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdQ-Zg-7gp" userLabel="First Responder" sceneMemberID="firstResponder"/>

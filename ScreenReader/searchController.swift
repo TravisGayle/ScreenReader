@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class searchController: UIViewController {
+class searchController: UIViewController, UISearchBarDelegate {
     
     //MARK: Properties
 
@@ -18,7 +18,7 @@ class searchController: UIViewController {
     //@IBOutlet weak var repeatButton: UIButton!
     //@IBOutlet weak var nextButton: UIButton!
     
-    
+    var doot = ""
     var ingredients = [""]
     var instructions = [""]
     var counter = -1
@@ -71,17 +71,80 @@ class searchController: UIViewController {
 
     }
     
+    @IBOutlet var theview: UIView!
     
     override func viewDidLoad() {
-        print("HI FAM")
+        print(doot)
         super.viewDidLoad()
-        getRecipe(recipeNo: "Pancakes")
+        searchBar.showsScopeBar = true
+        searchBar.delegate = self
+        if (doot != "") {
+            let url = URL(string: "http://services.bettycrocker.com/v2/recipes/"+doot+".xml")
+            
+            func findall(regex: String, text: String) -> [String] {
+                
+                do {
+                    let regex = try NSRegularExpression(pattern: regex, options: [])
+                    let nsString = text as NSString
+                    let results = regex.matches(in: text,
+                                                options: [], range: NSMakeRange(0, nsString.length))
+                    return results.map { nsString.substring(with: $0.rangeAt( 1))}
+                } catch let error as NSError {
+                    print("invalid regex: \(error.localizedDescription)")
+                    return []
+                }
+            }
+            
+            let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+                let xml = SWXMLHash.parse(data!)
+                //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
+                self.ingredients = xml["serviceResponse"]["recipe"]["ingredients"]["ingredient"].all.map { e in (e["displayText"].element?.text)! }
+                self.instructions = xml["serviceResponse"]["recipe"]["methods"]["method"].all.map { e in (e["description"].element?.text)! }
+                let characterArray = self.instructions.flatMap { String.CharacterView($0) }
+                
+                let string = String(characterArray).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                self.instructions = string.components(separatedBy: ".")
+                self.steps.text = xml["serviceResponse"]["recipe"]["title"].element?.text
+                self.theview.setNeedsLayout()
+                self.theview.setNeedsDisplay()
+                //}
+            }
+            
+            task.resume()
+
+            
+        } else {
+            getRecipe(recipeNo: "Pancakes")
+            self.steps.text = "Pancakes"
+        }
         self.steps.numberOfLines = 0
-        self.steps.text = "Pancakes"
     }
     
+    var searchActive = false
     //MARK: Actions
-
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+        print("GOOO")
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+         print("GOOO")
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+         print("GOOO")
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+         print("GOOO")
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
     @IBAction func nextButton(_ sender: Any) {
         if (counter < instructions.count-1) {
             counter = counter + 1
@@ -168,10 +231,13 @@ class searchController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // get a reference to the second view controller
-        let secondViewController = segue.destination as! searchResultsController
-        let term = (self.searchBar.text ?? "nope").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        // set a variable in the second view controller with the data to pass
-        secondViewController.doot = term!
+            let secondViewController = segue.destination as! searchResultsController
+            let term = (self.searchBar.text ?? "nope").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            // set a variable in the second view controller with the data to pass
+            secondViewController.doot = term!
+    
+      
+        
     }
     
 }
