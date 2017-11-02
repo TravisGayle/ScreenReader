@@ -9,23 +9,50 @@
 import UIKit
 
 class searchResultsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tv: UITableView!
     
     struct myData {
         var RecipeLabel:String
         var DescriptionLabel:String
     }
+    
+    var doot = "";
 
     var dummyData: [myData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(doot)
+        let url = URL(string: "http://services.bettycrocker.com/v2/search/recipes/true/"+doot+".xml")
+        
+        func findall(regex: String, text: String) -> [String] {
+            
+            do {
+                let regex = try NSRegularExpression(pattern: regex, options: [])
+                let nsString = text as NSString
+                let results = regex.matches(in: text,
+                                            options: [], range: NSMakeRange(0, nsString.length))
+                return results.map { nsString.substring(with: $0.rangeAt( 1))}
+            } catch let error as NSError {
+                print("invalid regex: \(error.localizedDescription)")
+                return []
+            }
+        }
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            let xml = SWXMLHash.parse(data!)
+            //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
+            self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["title"].element?.text)!) }
+            print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e["title"].element?.text })
+            self.tv.reloadData()
+            //}
+        }
+        
+        task.resume()
         // Do any additional setup after loading the view.
-        dummyData = [myData(RecipeLabel: "Pumpkin Pie", DescriptionLabel: "Delicious and nutritious (not really)"),
-                     myData(RecipeLabel:"Pumpkin Cookies", DescriptionLabel: "Don't forget to pair your cookies with a good ol' PSL"),
-                     myData(RecipeLabel: "Pumpkin Bumpkin", DescriptionLabel: "Idk")]
     }
 
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0036F3A51FAAC5C000995A14 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036F3A41FAAC5C000995A14 /* SWXMLHash.swift */; };
 		F7C677C71E8E2F45002DFEFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C677C61E8E2F45002DFEFE /* AppDelegate.swift */; };
 		F7C677C91E8E2F45002DFEFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C677C81E8E2F45002DFEFE /* ViewController.swift */; };
 		F7C677CC1E8E2F45002DFEFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7C677CA1E8E2F45002DFEFE /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0036F3A41FAAC5C000995A14 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		F7C677C31E8E2F45002DFEFE /* ScreenReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C677C61E8E2F45002DFEFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C677C81E8E2F45002DFEFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		F7C677C51E8E2F45002DFEFE /* ScreenReader */ = {
 			isa = PBXGroup;
 			children = (
+				0036F3A41FAAC5C000995A14 /* SWXMLHash.swift */,
 				F7C677C61E8E2F45002DFEFE /* AppDelegate.swift */,
 				F7C677C81E8E2F45002DFEFE /* ViewController.swift */,
 				F7D81DBC1EBB84C800D4C56A /* searchController.swift */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C677C91E8E2F45002DFEFE /* ViewController.swift in Sources */,
+				0036F3A51FAAC5C000995A14 /* SWXMLHash.swift in Sources */,
 				F7C677C71E8E2F45002DFEFE /* AppDelegate.swift in Sources */,
 				FAEF6B921FAA39C1007CBF2A /* MyTableCellTableViewCell.swift in Sources */,
 				F7D81DBD1EBB84C800D4C56A /* searchController.swift in Sources */,
