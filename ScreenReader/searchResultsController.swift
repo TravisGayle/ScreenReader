@@ -50,6 +50,9 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
             self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["description"].element?.text)!, id: (e["id"].element?.text)!) }
             //print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
             self.tv.reloadData()
+            DispatchQueue.main.async {
+                self.tv.reloadData()
+            }
             //}
         }
         
