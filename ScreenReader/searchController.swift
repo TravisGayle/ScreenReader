@@ -229,15 +229,12 @@ class searchController: UIViewController, UISearchBarDelegate {
     
     // This function is called before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if (segue.identifier=="toResults") {
         // get a reference to the second view controller
             let secondViewController = segue.destination as! searchResultsController
             let term = (self.searchBar.text ?? "nope").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             // set a variable in the second view controller with the data to pass
             secondViewController.doot = term!
-    
-      
-        
+        }
     }
-    
 }
