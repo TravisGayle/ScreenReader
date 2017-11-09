@@ -91,12 +91,14 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // get a reference to the second view controller
-        let secondViewController = segue.destination as! searchController
-        print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
-        out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
-        // set a variable in the second view controller with the data to pass
-        secondViewController.doot = out
-        secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
+        if (segue.identifier=="toSearch") {
+            let secondViewController = segue.destination as! searchController
+            print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
+            out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
+            // set a variable in the second view controller with the data to pass
+            secondViewController.doot = out
+            secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
+        }
     }
     
     /*
