@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class searchController: UIViewController, UISearchBarDelegate {
+class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: Properties
 
@@ -56,7 +56,9 @@ class searchController: UIViewController, UISearchBarDelegate {
             //print(findall(regex: "<span class=\"recipe-ingred[^>]*itemprop=\"ingredients\">([^<]*)<", text:html! as String))
             
             self.ingredients = findall(regex: "<span class=\"recipe-ingred[^>]*itemprop=\"ingredients\">([^<]*)<", text:html! as String)
-            
+            for element in self.ingredients {
+                print(element)
+            }
             //print(findall(regex: "<span class=\"recipe-directions[^>]*>([^<]*)<", text:html! as String))
             
             self.instructions = findall(regex: "<span class=\"recipe-directions[^>]*>([^<]*)<", text:html! as String)
@@ -238,5 +240,29 @@ class searchController: UIViewController, UISearchBarDelegate {
             // set a variable in the second view controller with the data to pass
             secondViewController.doot = term!
         }
+    }
+    
+    let sections = ["Ingredients"]
+    
+    
+    //@IBOutlet weak var ingredient: UILabel!
+    //Ingredients won't populate, unsure how to do it
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath)
+        cell.textLabel?.text = ingredients[indexPath.row]
+        return cell
     }
 }
