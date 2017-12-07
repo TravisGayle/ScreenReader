@@ -111,6 +111,7 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
                 //self.steps.text = xml["serviceResponse"]["recipe"]["title"].element?.text
                 self.theview.setNeedsLayout()
                 self.theview.setNeedsDisplay()
+                self.tv.reloadData()
                 //}
             }
             
@@ -229,6 +230,7 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
         getRecipe(recipeNo: name )
     }
     
+    @IBOutlet weak var tv: UITableView!
     @IBOutlet weak var steps: UILabel!
     
     // This function is called before the segue
