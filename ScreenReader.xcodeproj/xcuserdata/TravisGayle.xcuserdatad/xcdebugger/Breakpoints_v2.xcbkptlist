@@ -161,13 +161,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "531616684.354429"
+            timestampString = "539293119.040009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "findall(regex:text:)"
-            landmarkType = "9">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -177,13 +177,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "531616684.354502"
+            timestampString = "539293119.045944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "searchController"
-            landmarkType = "3">
+            landmarkName = "searchBarTextDidBeginEditing(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
