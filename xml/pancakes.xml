@@ -1,0 +1,29 @@
+
+<serviceResponse>
+<recipe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<title>Pancakes</title>
+<description>What else would you make?</description>
+<ingredients>
+<ingredient><quantity>1</quantity><name>1 1/2 cups all-purpose flour</name><displayText>1 1/2 cups all-purpose flour</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>3 1/2 teaspoons baking powder</name><displayText>3 1/2 teaspoons baking powder</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>1 teaspoon salt</name><displayText>1 teaspoon salt</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>1 tablespoon white sugar</name><displayText>1 tablespoon white sugar</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>1 1/4 cups milk</name><displayText>1 1/4 cups milk</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>1 egg</name><displayText>1 egg</displayText></ingredient>
+<ingredient><quantity>1</quantity><name>3 tablespoons melted butter</name><displayText>3 tablespoons melted butter</displayText></ingredient>
+</ingredients>
+<methods>
+<method><description>In a large bowl, mix together the flour, baking powder, salt, and sugar</description></method>
+<method><description>Make a well in the center of the mix</description></method>
+<method><description>Pour in milk, egg, and melted butter into the well</description></method>
+<method><description>Mix until smooth</description></method>
+<method><description>Heat a lightly oiled frying pan at medium heat</description></method>
+<method><description>Pour batter onto pan</description></method>
+<method><description>Cook until brown and flip</description></method>
+<method><description>Cook until brown on both sides</description></method>
+</methods>
+</recipe>
+<response>
+<status>SUCCESS</status>
+</response>
+</serviceResponse>
