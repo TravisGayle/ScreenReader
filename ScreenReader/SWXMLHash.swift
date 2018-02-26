@@ -1,3 +1,4 @@
+
 //
 //  SWXMLHash.swift
 //  SWXMLHash
