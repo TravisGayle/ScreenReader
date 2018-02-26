@@ -29,20 +29,7 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         print(doot)
         let url = URL(string: "http://services.bettycrocker.com/v2/search/recipes/true/"+doot+".xml")
-        
-        func findall(regex: String, text: String) -> [String] {
-            
-            do {
-                let regex = try NSRegularExpression(pattern: regex, options: [])
-                let nsString = text as NSString
-                let results = regex.matches(in: text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-                return results.map { nsString.substring(with: $0.rangeAt( 1))}
-            } catch let error as NSError {
-                print("invalid regex: \(error.localizedDescription)")
-                return []
-            }
-        }
+
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
