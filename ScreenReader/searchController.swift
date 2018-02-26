@@ -112,6 +112,9 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
                 self.theview.setNeedsLayout()
                 self.theview.setNeedsDisplay()
                 self.tv.reloadData()
+                DispatchQueue.main.async {
+                    self.tv.reloadData()
+                }
                 //}
             }
             
