@@ -161,7 +161,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "539293119.040009"
+            timestampString = "545162723.780753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -177,13 +177,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "539293119.045944"
+            timestampString = "545162723.7812999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "searchBarTextDidBeginEditing(_:)"
-            landmarkType = "7">
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "searchController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
