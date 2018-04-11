@@ -80,10 +80,8 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         print(doot)
         super.viewDidLoad()
         self.steps.text = recipetitle
-        searchBar.showsScopeBar = true
-        searchBar.delegate = self
         if (doot != "") {
-            let url = URL(string: "http://services.bettycrocker.com/v2/recipes/"+doot+".xml")
+            let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/"+doot+".xml")
             
             func findall(regex: String, text: String) -> [String] {
                 
@@ -182,33 +180,9 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         //don't touch this we might break it
     }
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBAction func searchyboi(_ sender: Any) {
-        let term = (self.searchBar.text ?? "nope").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = URL(string: "http://services.bettycrocker.com/v2/search/recipes/true/"+term!+".xml")
         
-        func findall(regex: String, text: String) -> [String] {
-            
-            do {
-                let regex = try NSRegularExpression(pattern: regex, options: [])
-                let nsString = text as NSString
-                let results = regex.matches(in: text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-                return results.map { nsString.substring(with: $0.rangeAt( 1))}
-            } catch let error as NSError {
-                print("invalid regex: \(error.localizedDescription)")
-                return []
-            }
-        }
-        
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            let xml = SWXMLHash.parse(data!)
-            //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
-            print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
-            //}
-        }
-        
-        task.resume()
     }
     @IBAction func repeatButton(_ sender: Any) {
         if (counter <= 0) {
@@ -238,13 +212,7 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
     
     // This function is called before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier=="toResults") {
-            // get a reference to the second view controller
-            let secondViewController = segue.destination as! searchResultsControllerNewRec
-            let term = (self.searchBar.text ?? "nope").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            // set a variable in the second view controller with the data to pass
-            secondViewController.doot = term!
-        }
+
     }
     
     let sections = ["Ingredients"]

@@ -80,13 +80,14 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // get a reference to the second view controller
-        if (segue.identifier=="toSearch") {
-            let secondViewController = segue.destination as! searchController
+        if (segue.identifier=="toCustom") {
+            let secondViewController = segue.destination as! searchControllerNewRec
             print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
             out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
             // set a variable in the second view controller with the data to pass
-            secondViewController.doot = out
-            secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
+            secondViewController.doot = "test"
+            secondViewController.recipetitle = "Title of Recipe goes here"
+            //dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
         }
     }
     
