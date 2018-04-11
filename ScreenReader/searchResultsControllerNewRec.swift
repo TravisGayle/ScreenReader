@@ -17,12 +17,13 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
         var id:String
     }
     
-    var doot = "";
+    var doot = "test";
     var out = ""
     
     var dummyData: [myData] = []
     
     override func viewDidLoad() {
+        print("OK")
         super.viewDidLoad()
     }
     
@@ -34,7 +35,8 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
             //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
-            self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["description"].element?.text)!, id: (e["id"].element?.text)!) }
+            self.dummyData = xml["serviceResponse"]["recipe"]["ingredients"]["ingredient"].all.map { e in myData(RecipeLabel: (e["name"].element?.text)! , DescriptionLabel: (e["displayText"].element?.text)!, id: (e["quantity"].element?.text)!) }
+            //self.dummyData = xml["serviceResponse"]["recipe"]["methods"]["method"].all.map { e in (e["description"].element?.text)! }
             //print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
             self.tv.reloadData()
             DispatchQueue.main.async {
@@ -78,13 +80,14 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // get a reference to the second view controller
-        if (segue.identifier=="toSearch") {
-            let secondViewController = segue.destination as! searchController
+        if (segue.identifier=="toCustom") {
+            let secondViewController = segue.destination as! searchControllerNewRec
             print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
             out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
             // set a variable in the second view controller with the data to pass
-            secondViewController.doot = out
-            secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
+            secondViewController.doot = "test"
+            secondViewController.recipetitle = "Title of Recipe goes here"
+            //dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
         }
     }
     
