@@ -17,12 +17,13 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
         var id:String
     }
     
-    var doot = "";
+    var doot = "test";
     var out = ""
     
     var dummyData: [myData] = []
     
     override func viewDidLoad() {
+        print("OK")
         super.viewDidLoad()
     }
     
@@ -34,7 +35,8 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
             //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
-            self.dummyData = xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["description"].element?.text)!, id: (e["id"].element?.text)!) }
+            self.dummyData = xml["serviceResponse"]["recipe"]["ingredients"]["ingredient"].all.map { e in myData(RecipeLabel: (e["name"].element?.text)! , DescriptionLabel: (e["displayText"].element?.text)!, id: (e["quantity"].element?.text)!) }
+            //self.dummyData = xml["serviceResponse"]["recipe"]["methods"]["method"].all.map { e in (e["description"].element?.text)! }
             //print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
             self.tv.reloadData()
             DispatchQueue.main.async {

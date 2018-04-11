@@ -645,7 +645,7 @@
         <!--searchResultsController-->
         <scene sceneID="Dpq-Bh-dwY">
             <objects>
-                <viewController title="searchResultsController" id="qyq-kq-8YV" customClass="searchResultsController" customModule="ScreenReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="searchResultsController" id="qyq-kq-8YV" customClass="searchResultsControllerNewRec" customModule="ScreenReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TB6-if-Jj9"/>
                         <viewControllerLayoutGuide type="bottom" id="xdt-04-NsJ"/>
