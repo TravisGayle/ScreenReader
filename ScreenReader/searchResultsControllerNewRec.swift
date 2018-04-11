@@ -1,14 +1,14 @@
 //
-//  searchResultsController.swift
+//  searchResultsControllerNewRec.swift
 //  ScreenReader
 //
-//  Created by Julianna Yee on 11/1/17.
-//  Copyright © 2017 TravisGayle. All rights reserved.
+//  Created by Matthew Lanus (2018) on 2/26/18.
+//  Copyright © 2018 TravisGayle. All rights reserved.
 //
 
 import UIKit
 
-class searchResultsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tv: UITableView!
     
     struct myData {
@@ -19,30 +19,17 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
     
     var doot = "";
     var out = ""
-
+    
     var dummyData: [myData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         print(doot)
-        let url = URL(string: "http://services.bettycrocker.com/v2/search/recipes/true/"+doot+".xml")
+        let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/"+doot+".xml")
         
-        func findall(regex: String, text: String) -> [String] {
-            
-            do {
-                let regex = try NSRegularExpression(pattern: regex, options: [])
-                let nsString = text as NSString
-                let results = regex.matches(in: text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-                return results.map { nsString.substring(with: $0.rangeAt( 1))}
-            } catch let error as NSError {
-                print("invalid regex: \(error.localizedDescription)")
-                return []
-            }
-        }
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
@@ -59,15 +46,15 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
         task.resume()
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-//    @IBAction func BackButtonSearchView(_ sender: UIButton) {
-//
-//    }
+    //    @IBAction func BackButtonSearchView(_ sender: UIButton) {
+    //
+    //    }
     
     
     
@@ -102,13 +89,14 @@ class searchResultsController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     /*
-    // MARK: - Navigation
-//NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     //NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+
