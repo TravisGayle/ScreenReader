@@ -114,12 +114,12 @@
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "530674927.3802"
+                  timestampString = "545162890.902777"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "109">
+                  offsetFromSymbolStart = "106">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -129,7 +129,7 @@
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "530674927.386595"
+                  timestampString = "545162890.906781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -144,7 +144,7 @@
                   moduleName = "ScreenReader"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/TravisGayle/Desktop/ScreenReader/ScreenReader/AppDelegate.swift"
-                  timestampString = "530674927.389645"
+                  timestampString = "545162890.910136"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -161,7 +161,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "539293119.040009"
+            timestampString = "545162906.518491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -177,13 +177,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScreenReader/searchController.swift"
-            timestampString = "539293119.045944"
+            timestampString = "545162906.518965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "searchBarTextDidBeginEditing(_:)"
-            landmarkType = "7">
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "searchController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
