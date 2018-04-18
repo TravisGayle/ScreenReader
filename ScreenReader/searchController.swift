@@ -57,6 +57,9 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
             
             self.ingredients = findall(regex: "<span class=\"recipe-ingred[^>]*itemprop=\"ingredients\">([^<]*)<", text:html! as String)
             for element in self.ingredients {
+                let ss:AVSpeechSynthesizer = AVSpeechSynthesizer()
+                let u:AVSpeechUtterance = AVSpeechUtterance(string: element)
+                ss.speak(u)
                 print(element)
             }
             //print(findall(regex: "<span class=\"recipe-directions[^>]*>([^<]*)<", text:html! as String))
