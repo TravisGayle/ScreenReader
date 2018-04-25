@@ -1,4 +1,5 @@
 script:
+  - sudo apt install python3-pip
   - sudo pip3 install pyyaml
   - ./scripts/y2x.py
 
