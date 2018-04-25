@@ -1,4 +1,5 @@
 script:
+  - sudo pip install pyyaml
   - ./scripts/y2x.py
 
 deploy:
