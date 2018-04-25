@@ -32,6 +32,14 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
     
     var recipeDict = ["Pancakes": "http://allrecipes.com/recipe/8056/pancakes/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202", "Lasagna": "http://allrecipes.com/recipe/14054/lasagna/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%202","Omelet":"http://allrecipes.com/recipe/33109/aussie-omelet/?internalSource=rotd&referringId=1314&referringContentType=recipe%20hub&clickId=cardslot%201","Kabobs":"http://allrecipes.com/recipe/19934/chili-lime-chicken-kabobs/?internalSource=streams&referringId=201&referringContentType=recipe%20hub&clickId=st_trending_b","Brownies":"http://allrecipes.com/recipe/238654/brookies-brownie-cookies/?internalSource=staff%20pick&referringId=79&referringContentType=recipe%20hub","Baked Macaroni":"http://allrecipes.com/recipe/24321/moms-favorite-baked-mac-and-cheese/?internalSource=hub%20recipe&referringContentType=search%20results&clickId=cardslot%204"]
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: indexPath!) as! UITableViewCell
+        let ss:AVSpeechSynthesizer = AVSpeechSynthesizer()
+        let u:AVSpeechUtterance = AVSpeechUtterance(string: currentCell.textLabel!.text! )
+        ss.speak(u)
+    }
+    
     func getRecipe(recipeNo: String) {
         let url = URL(string: recipeDict[recipeNo]!)
         
@@ -56,12 +64,7 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
             //print(findall(regex: "<span class=\"recipe-ingred[^>]*itemprop=\"ingredients\">([^<]*)<", text:html! as String))
             
             self.ingredients = findall(regex: "<span class=\"recipe-ingred[^>]*itemprop=\"ingredients\">([^<]*)<", text:html! as String)
-            for element in self.ingredients {
-                let ss:AVSpeechSynthesizer = AVSpeechSynthesizer()
-                let u:AVSpeechUtterance = AVSpeechUtterance(string: element)
-                ss.speak(u)
-                print(element)
-            }
+         
             //print(findall(regex: "<span class=\"recipe-directions[^>]*>([^<]*)<", text:html! as String))
             
             self.instructions = findall(regex: "<span class=\"recipe-directions[^>]*>([^<]*)<", text:html! as String)
@@ -225,8 +228,23 @@ class searchController: UIViewController, UISearchBarDelegate, UITableViewDataSo
         ss.speak(u)
         
     }
-    
-    
+    /*
+    @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //getting the index path of selected row
+        let indexPath = tableView.indexPathForSelectedRow
+        
+        //getting the current cell from the index path
+        let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
+        
+        //getting the text of that cell
+        let currentItem = currentCell.textLabel!.text
+        
+        let alertController = UIAlertController(title: "Simplified iOS", message: "You Selected " + currentItem! , preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }*/
     @IBAction func randomButton(_ sender: UIBarButtonItem) {
 
         let name = Array(recipeDict.keys)[Int(arc4random_uniform(UInt32(recipeDict.count)))] // The function arc4random_uniform(_:) takes one parameter, the upper bound. It’ll return a random number between 0 and this upper bound, minus 1.
