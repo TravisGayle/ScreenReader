@@ -1,5 +1,5 @@
 script:
-  - ./y2x.py
+  - ./scripts/y2x.py
 
 deploy:
   local_dir: xml # Default static site output dir for Hugo
