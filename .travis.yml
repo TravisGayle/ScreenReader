@@ -1,5 +1,5 @@
 script:
-  - hugo --theme=charles-by-charles # This commands builds your website on travis
+  - ./y2x.py
 
 deploy:
   local_dir: xml # Default static site output dir for Hugo
