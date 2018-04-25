@@ -33,13 +33,18 @@ def generate_step(item):
     return "<method><description>{0}</description></method>".format(item)
 
 
-in_files = [f for f in os.listdir(IN_PATH) if os.path.isfile(os.path.join(IN_PATH, f)) and f.endswith(IN_EXTENSION)]
-for in_file in in_files:
-    with open(os.path.join(IN_PATH, in_file), "r") as f:
-        docs = yaml.load_all(f)
-        recipe = [d for d in docs][0] #ignore additional recipes
-    out_file = os.path.join(OUT_PATH, os.path.splitext(in_file)[0] + OUT_EXTENSION)
-    with open(out_file, "w+") as f: 
-        ingredients = "\n".join([generate_ingredient(x) for x in recipe["ingredients"]])
-        steps = "\n".join([generate_step(x) for x in recipe["steps"]])
-        f.write(TEMPLATE.format(recipe["title"], recipe["description"], ingredients, steps))
+out_file = os.path.join(OUT_PATH, "index.xml")
+with open(out_file, "w+") as hahayes: 
+    hahayes.write("<serviceResponse><recipes>\n")
+    in_files = [f for f in os.listdir(IN_PATH) if os.path.isfile(os.path.join(IN_PATH, f)) and f.endswith(IN_EXTENSION)]
+    for in_file in in_files:
+        with open(os.path.join(IN_PATH, in_file), "r") as f:
+            docs = yaml.load_all(f)
+            recipe = [d for d in docs][0] #ignore additional recipes
+        out_file = os.path.join(OUT_PATH, os.path.splitext(in_file)[0] + OUT_EXTENSION)
+        with open(out_file, "w+") as f: 
+            ingredients = "\n".join([generate_ingredient(x) for x in recipe["ingredients"]])
+            steps = "\n".join([generate_step(x) for x in recipe["steps"]])
+            hahayes.write("<recipe><title>{}</title><description>{}</description></recipe>\n".format(recipe["title"], recipe["description"]))
+            f.write(TEMPLATE.format(recipe["title"], recipe["description"], ingredients, steps))
+    hahayes.write("</recipes></serviceResponse>\n")
