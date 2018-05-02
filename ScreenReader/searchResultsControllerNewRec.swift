@@ -29,13 +29,14 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         print(doot)
-        let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/"+doot+".xml")
+        let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/index.xml")
         
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             let xml = SWXMLHash.parse(data!)
             //for c in xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].children {
-            self.dummyData = xml["serviceResponse"]["recipe"]["ingredients"]["ingredient"].all.map { e in myData(RecipeLabel: (e["name"].element?.text)! , DescriptionLabel: (e["displayText"].element?.text)!, id: (e["quantity"].element?.text)!) }
+              self.dummyData = xml["serviceResponse"]["recipes"]["recipe"].all.map { e in myData(RecipeLabel: (e["title"].element?.text)! , DescriptionLabel: (e["description"].element?.text)!, id: (e["url"].element?.text)!) }
+            
             //self.dummyData = xml["serviceResponse"]["recipe"]["methods"]["method"].all.map { e in (e["description"].element?.text)! }
             //print(xml["serviceResponse"]["searchResults"]["recipeList"]["recipeSummary"].all.map { e in e })
             self.tv.reloadData()
@@ -85,8 +86,8 @@ class searchResultsControllerNewRec: UIViewController, UITableViewDelegate, UITa
             print(dummyData[(tv.indexPathForSelectedRow?.row)!].id)
             out = dummyData[(tv.indexPathForSelectedRow?.row)!].id
             // set a variable in the second view controller with the data to pass
-            secondViewController.doot = "test"
-            secondViewController.recipetitle = "Title of Recipe goes here"
+            secondViewController.doot = out
+            secondViewController.recipetitle = dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
             //dummyData[(tv.indexPathForSelectedRow?.row)!].RecipeLabel
         }
     }

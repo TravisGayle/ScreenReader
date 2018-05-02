@@ -81,7 +81,9 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         super.viewDidLoad()
         self.steps.text = recipetitle
         if (doot != "") {
-            let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/"+doot+".xml")
+            print("I AM LOADING")
+            print(doot)
+            let url = URL(string: "https://johnathonnow.github.io/RecipeReaderRecipes/"+doot)
             
             func findall(regex: String, text: String) -> [String] {
                 
