@@ -241,5 +241,13 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         cell.textLabel?.numberOfLines = 0 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: indexPath!) as! UITableViewCell
+        let ss:AVSpeechSynthesizer = AVSpeechSynthesizer()
+        let u:AVSpeechUtterance = AVSpeechUtterance(string: currentCell.textLabel!.text! )
+        ss.speak(u)
+    }
 }
 
