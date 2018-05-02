@@ -45,6 +45,6 @@ with open(out_file, "w+") as hahayes:
         with open(out_file, "w+") as f: 
             ingredients = "\n".join([generate_ingredient(x) for x in recipe["ingredients"]])
             steps = "\n".join([generate_step(x) for x in recipe["steps"]])
-            hahayes.write("<recipe><title>{}</title><description>{}</description><url>{}</url></recipe>\n".format(recipe["title"], recipe["description"], in_file))
+            hahayes.write("<recipe><title>{}</title><description>{}</description><url>{}</url></recipe>\n".format(recipe["title"], recipe["description"], out_file))
             f.write(TEMPLATE.format(recipe["title"], recipe["description"], ingredients, steps))
     hahayes.write("</recipes></serviceResponse>\n")
