@@ -196,7 +196,6 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         self.steps.text = instructions[counter]
         let u:AVSpeechUtterance = AVSpeechUtterance(string: instructions[counter])
         ss.speak(u)
-        
     }
     
     
@@ -238,6 +237,8 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath)
         cell.textLabel?.text = ingredients[indexPath.row]
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
         return cell
     }
 }
