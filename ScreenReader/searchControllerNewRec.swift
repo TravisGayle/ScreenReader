@@ -238,7 +238,7 @@ class searchControllerNewRec: UIViewController, UISearchBarDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath)
         cell.textLabel?.text = ingredients[indexPath.row]
         cell.textLabel?.lineBreakMode = .byWordWrapping
-        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.numberOfLines = 0 
         return cell
     }
 }
