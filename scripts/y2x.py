@@ -42,9 +42,10 @@ with open(out_file, "w+") as hahayes:
             docs = yaml.load_all(f)
             recipe = [d for d in docs][0] #ignore additional recipes
         out_file = os.path.join(OUT_PATH, os.path.splitext(in_file)[0] + OUT_EXTENSION)
+        out_name = os.path.splitext(in_file)[0] + OUT_EXTENSION
         with open(out_file, "w+") as f: 
             ingredients = "\n".join([generate_ingredient(x) for x in recipe["ingredients"]])
             steps = "\n".join([generate_step(x) for x in recipe["steps"]])
-            hahayes.write("<recipe><title>{}</title><description>{}</description><url>{}</url></recipe>\n".format(recipe["title"], recipe["description"], out_file))
+            hahayes.write("<recipe><title>{}</title><description>{}</description><url>{}</url></recipe>\n".format(recipe["title"], recipe["description"], out_name))
             f.write(TEMPLATE.format(recipe["title"], recipe["description"], ingredients, steps))
     hahayes.write("</recipes></serviceResponse>\n")
